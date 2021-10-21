@@ -1,0 +1,27 @@
+{
+  "name": "momrabbitm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "rpcProducer": "npm run tsc && node build/producerConsumer/rpc/producer.js",
+    "directProducer": "npm run tsc && node build/producerConsumer/directEveryXSec/producer.js",
+    "directConsumer": "npm run tsc && node build/producerConsumer/directEveryXSec/consumer.js",
+    "rpcTest": "npm run tsc &&  jest --testNamePattern=RPC --forceExit --maxWorkers 1",
+    "directTest": "npm run tsc &&  jest --testNamePattern=Direct --forceExit --maxWorkers 1",
+    "runDirectTest": "npm-run-all -p -r directProducer directTest",
+    "runRpcTest": "npm-run-all -p -r rpcProducer rpcTest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^27.0.2",
+    "amqp": "^0.2.7",
+    "amqplib": "^0.8.0",
+    "jest": "^27.3.0",
+    "npm-run-all": "^4.1.5",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
+  }
+}
